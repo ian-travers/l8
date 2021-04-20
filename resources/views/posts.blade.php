@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="app.css">
 <body>
 <article>
-    <h1>First post</h1>
+    <h1><a href="/post">First post</a></h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad assumenda aut blanditiis consectetur consequatur
         culpa cupiditate dolor dolorum eaque, eligendi hic ipsum labore libero maiores modi mollitia nihil omnis, optio
         possimus provident qui quibusdam, quis quisquam quo quod ratione saepe sed sint soluta totam unde veritatis
@@ -14,7 +14,7 @@
 </article>
 
 <article>
-    <h1>Second post</h1>
+    <h1><a href="/post">Second post</a></h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, impedit incidunt inventore ipsam itaque natus neque quia reiciendis tenetur unde ut vero. Asperiores corporis esse nihil porro temporibus! Accusantium at, distinctio dolores eius excepturi minima nihil obcaecati perspiciatis placeat soluta ullam, vero vitae voluptatem. Possimus!</p>
 </article>
 </body>
