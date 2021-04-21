@@ -1,8 +1,8 @@
 <x-layout>
     <article>
-        <h1>{{ optional($post)->title }}</h1>
+        <h1>{{ $post->title }}</h1>
         <div>
-            {!! optional($post)->body !!}
+            {!! $post->body !!}
         </div>
     </article>
     <a href="/">Go Back</a>
