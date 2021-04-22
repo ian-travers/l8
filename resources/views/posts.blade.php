@@ -1,3 +1,5 @@
+@php /** @var \App\Models\Post $post */ @endphp
+
 <x-layout>
     @foreach($posts as $post)
         <article>
@@ -6,6 +8,7 @@
                     {{ $post->title }}
                 </a>
             </h1>
+            <p><a href="#">{{ $post->category->name }}</a></p>
             <div>{{ $post->excerpt }}</div>
         </article>
     @endforeach
