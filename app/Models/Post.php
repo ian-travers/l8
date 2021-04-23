@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  * App\Models\Post
  *
  * @property int $id
+ * @property int $user_id
  * @property int $category_id
  * @property string $slug
  * @property string $title
@@ -19,6 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $published_at
  * @property-read \App\Models\Category $category
+ * @property-read \App\Models\User $user
  * @method static Builder|Post newModelQuery()
  * @method static Builder|Post newQuery()
  * @method static Builder|Post query()
@@ -31,6 +33,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static Builder|Post whereSlug($value)
  * @method static Builder|Post whereTitle($value)
  * @method static Builder|Post whereUpdatedAt($value)
+ * @method static Builder|Post whereUserId($value)
  * @mixin \Eloquent
  */
 class Post extends Model
@@ -42,5 +45,10 @@ class Post extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

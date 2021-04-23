@@ -9,7 +9,9 @@
                 </a>
             </h1>
             <p><a href="/categories/{{ $post->category->slug }}">{{ $post->category->name }}</a></p>
-            <div>{{ $post->excerpt }}</div>
+            <div>
+                <p>{{ $post->excerpt }}</p>
+            </div>
         </article>
     @endforeach
 </x-layout>
