@@ -9,7 +9,7 @@
     <div
         x-show="show"
         style="display: none"
-        class="py-2 absolute w-full z-50 bg-gray-100 mt-2 rounded-xl"
+        class="py-2 absolute w-full z-50 bg-gray-100 mt-2 rounded-xl overflow-auto max-h-52"
     >
         {{ $slot }}
     </div>
