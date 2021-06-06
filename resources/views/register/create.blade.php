@@ -13,8 +13,10 @@
                         class="border border-gray-400 p-2 w-full"
                         id="name"
                         name="name"
+                        value="{{ old('name') }}"
                         required autofocus
                     >
+                    @error('name')<p class="text-red-500 text-xs mt-1">{{ $message }}</p>@enderror
                 </div>
 
                 <div class="mb-6">
@@ -26,8 +28,10 @@
                         class="border border-gray-400 p-2 w-full"
                         id="username"
                         name="username"
+                        value="{{ old('username') }}"
                         required
                     >
+                    @error('username')<p class="text-red-500 text-xs mt-1">{{ $message }}</p>@enderror
                 </div>
 
                 <div class="mb-6">
@@ -39,8 +43,10 @@
                         class="border border-gray-400 p-2 w-full"
                         id="email"
                         name="email"
+                        value="{{ old('email') }}"
                         required
                     >
+                    @error('email')<p class="text-red-500 text-xs mt-1">{{ $message }}</p>@enderror
                 </div>
 
                 <div class="mb-6">
@@ -54,6 +60,7 @@
                         name="password"
                         required
                     >
+                    @error('password')<p class="text-red-500 text-xs mt-1">{{ $message }}</p>@enderror
                 </div>
 
                 <div class="mb-6">
