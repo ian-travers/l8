@@ -1,38 +1,10 @@
 <x-layout>
     <section class="px-6 py-8">
         <main class="max-w-lg mx-auto bg-gray-100 rounded-xl border border-gray-200 p-6 mt-10">
-            <h1 class="text-2xl font-bold text-center">Register!</h1>
-            <form action="/register" method="post" class="mt-10">
-                @csrf
-                <div class="mb-6">
-                    <label for="name" class="block mb-2 uppercase text-xs text-gray-700">
-                        Name
-                    </label>
-                    <input
-                        type="text"
-                        class="border border-gray-400 p-2 w-full"
-                        id="name"
-                        name="name"
-                        value="{{ old('name') }}"
-                        required autofocus
-                    >
-                    @error('name')<p class="text-red-500 text-xs mt-1">{{ $message }}</p>@enderror
-                </div>
+            <h1 class="text-2xl font-bold text-center">Login</h1>
 
-                <div class="mb-6">
-                    <label for="username" class="block mb-2 uppercase text-xs text-gray-700">
-                        Username
-                    </label>
-                    <input
-                        type="text"
-                        class="border border-gray-400 p-2 w-full"
-                        id="username"
-                        name="username"
-                        value="{{ old('username') }}"
-                        required
-                    >
-                    @error('username')<p class="text-red-500 text-xs mt-1">{{ $message }}</p>@enderror
-                </div>
+            <form action="/login" method="post" class="mt-10">
+                @csrf
 
                 <div class="mb-6">
                     <label for="email" class="block mb-2 uppercase text-xs text-gray-700">
@@ -65,7 +37,7 @@
 
                 <div class="mb-6">
                     <button type="submit" class="bg-blue-400 hover:bg-blue-500 text-white px-4 py-2">
-                        Submit
+                        Login
                     </button>
                 </div>
             </form>
