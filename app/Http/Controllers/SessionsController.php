@@ -11,6 +11,10 @@ class SessionsController extends Controller
         return view('sessions.create');
     }
 
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Illuminate\Validation\ValidationException
+     */
     public function store()
     {
         $attributes = request()->validate([
@@ -18,19 +22,15 @@ class SessionsController extends Controller
             'password' => 'required',
         ]);
 
-        if (auth()->attempt($attributes)) {
-            session()->regenerate();
-
-            return redirect('/')->with('success', 'Welcome back!');
+        if (!auth()->attempt($attributes)) {
+            throw ValidationException::withMessages([
+                'email' => 'Your provided credentials could not be verified.',
+            ]);
         }
 
-//        return back()
-//            ->withInput()
-//            ->withErrors(['email' => 'Your provided credentials could not be verified.']);
+        session()->regenerate();
 
-        throw ValidationException::withMessages([
-            'email' => 'Your provided credentials could not be verified.',
-        ]);
+        return redirect('/')->with('success', 'Welcome back!');
     }
 
     public function destroy()
