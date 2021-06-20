@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Database\Factories\PostFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -22,7 +21,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $published_at
  * @property-read \App\Models\User $author
  * @property-read \App\Models\Category $category
- * @method static PostFactory factory(...$parameters)
+ * @method static \Database\Factories\PostFactory factory(...$parameters)
+ * @method static Builder|Post filter(array $filters)
  * @method static Builder|Post newModelQuery()
  * @method static Builder|Post newQuery()
  * @method static Builder|Post query()
@@ -45,6 +45,11 @@ class Post extends Model
     protected $guarded = ['id'];
 
     protected $with = ['category', 'author'];
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 
     public function category()
     {
