@@ -1,0 +1,16 @@
+<article class="flex bg-gray-100 border border-gray-200 rounded-xl space-x-4 p-6">
+    <div class="flex-shrink-0">
+        <img src="https://i.pravatar.cc/" alt="avatar" width="60" height="60" class="rounded-xl">
+    </div>
+
+    <div>
+        <header class="mb-4">
+            <h3 class="font-bold">John Doe</h3>
+            <p class="text-xs">
+                Posted
+                <time>6 months ago</time>
+            </p>
+        </header>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis consequuntur dicta reprehenderit sit. Adipisci aut consectetur cumque ea eius facere impedit ipsam laudantium modi odit perspiciatis possimus praesentium, recusandae repellat sit tempore unde!</p>
+    </div>
+</article>
