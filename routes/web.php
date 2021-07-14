@@ -25,3 +25,19 @@ Route::group([
 ], function () {
     Route::post('logout', [SessionsController::class, 'destroy']);
 });
+
+Route::get('ping', function () {
+    $mailchimp = new \MailchimpMarketing\ApiClient();
+
+    $mailchimp->setConfig([
+        'apiKey' => config('services.mailchimp.key'),
+        'server' => 'us6',
+    ]);
+
+    $response = $mailchimp->lists->addListMember('e7d8479f61', [
+        'email_address' => 'mr.itpe@gmail.com',
+        'status' => 'subscribed',
+    ]);
+
+    ddd($response);
+});
