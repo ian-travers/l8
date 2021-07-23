@@ -30,3 +30,4 @@ Route::group([
 });
 
 Route::get('admin/post/create', [PostController::class, 'create'])->middleware(['auth', 'admin']);
+Route::post('admin/post', [PostController::class, 'store'])->middleware(['auth', 'admin']);
