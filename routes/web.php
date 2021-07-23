@@ -19,7 +19,7 @@ Route::group([
 ], function () {
     Route::get('register', [RegisterController::class, 'create']);
     Route::post('register', [RegisterController::class, 'store']);
-    Route::get('login', [SessionsController::class, 'create']);
+    Route::get('login', [SessionsController::class, 'create'])->name('login');
     Route::post('login', [SessionsController::class, 'store']);
 });
 
@@ -28,3 +28,5 @@ Route::group([
 ], function () {
     Route::post('logout', [SessionsController::class, 'destroy']);
 });
+
+Route::get('admin/post/create', [PostController::class, 'create'])->middleware(['auth', 'admin']);
