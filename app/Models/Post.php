@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $category_id
  * @property string $slug
  * @property string $title
+ * @property string|null $thumbnail
  * @property string $excerpt
  * @property string $body
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -21,6 +22,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $published_at
  * @property-read \App\Models\User $author
  * @property-read \App\Models\Category $category
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Comment[] $comments
+ * @property-read int|null $comments_count
  * @method static \Database\Factories\PostFactory factory(...$parameters)
  * @method static Builder|Post filter(array $filters)
  * @method static Builder|Post newModelQuery()
@@ -33,6 +36,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static Builder|Post whereId($value)
  * @method static Builder|Post wherePublishedAt($value)
  * @method static Builder|Post whereSlug($value)
+ * @method static Builder|Post whereThumbnail($value)
  * @method static Builder|Post whereTitle($value)
  * @method static Builder|Post whereUpdatedAt($value)
  * @method static Builder|Post whereUserId($value)

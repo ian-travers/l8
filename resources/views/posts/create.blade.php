@@ -1,9 +1,12 @@
 @php /** @var \App\Models\Post $post */ @endphp
 
 <x-layout>
-    <section class="px-6 py-8">
-        <x-panel class="max-w-md mx-auto">
-            <form action="/admin/post" method="post" class="">
+    <section class="py-8 max-w-md mx-auto">
+        <h1 class="text-lg font-bold mb-4">
+            Publish New Post
+        </h1>
+        <x-panel>
+            <form action="/admin/post" method="post" enctype="multipart/form-data">
                 @csrf
 
                 <div class="mb-6">
@@ -31,9 +34,22 @@
                         type="text"
                         value="{{ old('slug') }}"
                         class="border border-gray-400 w-full p-2"
-                        autofocus
                     >
                     @error('slug')<p class="text-red-500 text-xs mt-2">{{ $message }}</p>@enderror
+                </div>
+
+                <div class="mb-6">
+                    <label for="thumbnail" class="block font-bold text-xs text-gray-700 uppercase mb-2">
+                        Thumbnail
+                    </label>
+                    <input
+                        id="thumbnail"
+                        name="thumbnail"
+                        type="file"
+                        value="{{ old('thumbnail') }}"
+                        class="border border-gray-400 w-full p-2"
+                    >
+                    @error('thumbnail')<p class="text-red-500 text-xs mt-2">{{ $message }}</p>@enderror
                 </div>
 
                 <div class="mb-6">
