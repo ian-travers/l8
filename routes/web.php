@@ -15,24 +15,18 @@ Route::post('posts/{post:slug}/comments', [PostCommentsController::class, 'store
 
 Route::post('newsletter', NewsletterController::class);
 
-Route::group([
-    'middleware' => 'guest',
-], function () {
+Route::middleware('guest')->group(function () {
     Route::get('register', [RegisterController::class, 'create']);
     Route::post('register', [RegisterController::class, 'store']);
     Route::get('login', [SessionsController::class, 'create'])->name('login');
     Route::post('login', [SessionsController::class, 'store']);
 });
 
-Route::group([
-    'middleware' => 'auth',
-], function () {
+Route::middleware('auth')->group(function () {
     Route::post('logout', [SessionsController::class, 'destroy']);
 });
 
-Route::get('admin/posts', [AdminPostController::class, 'index'])->middleware(['auth', 'admin']);
-Route::post('admin/posts', [AdminPostController::class, 'store'])->middleware(['auth', 'admin']);
-Route::get('admin/posts/create', [AdminPostController::class, 'create'])->middleware(['auth', 'admin']);
-Route::get('admin/posts/{post}/edit', [AdminPostController::class, 'edit'])->middleware(['auth', 'admin']);
-Route::patch('admin/posts/{post}', [AdminPostController::class, 'update'])->middleware(['auth', 'admin']);
-Route::delete('admin/posts/{post}', [AdminPostController::class, 'destroy'])->middleware(['auth', 'admin']);
+Route::middleware('can:admin')->group(function () {
+    Route::resource('admin/posts', AdminPostController::class)->except('show');
+});
+
