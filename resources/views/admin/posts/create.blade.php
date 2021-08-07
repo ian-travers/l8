@@ -1,13 +1,13 @@
 <x-layout>
     <x-setting heading="Publish New Post">
-        <form action="/admin/post" method="post" enctype="multipart/form-data">
+        <form action="/admin/posts" method="post" enctype="multipart/form-data">
             @csrf
 
             <x-form.input name="title"/>
             <x-form.input name="slug"/>
             <x-form.input name="thumbnail" type="file"/>
-            <x-form.textarea name="excerpt" type="file"/>
-            <x-form.textarea name="body" type="file"/>
+            <x-form.textarea name="excerpt"/>
+            <x-form.textarea name="body"/>
             <x-form.field>
                 <x-form.label name="category"/>
 
